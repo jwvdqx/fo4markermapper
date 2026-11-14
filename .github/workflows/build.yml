@@ -1,0 +1,29 @@
+name: build
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  plugin:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { submodules: recursive }
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with: { xmake-version: latest }
+      - run: xmake f -y -m release
+      - run: xmake -y -v
+      - uses: actions/upload-artifact@v4
+        with: { name: MarkerSwap-plugin, path: build/windows/x64/release/*.dll }
+  swf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 17 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Compile AS3 with Apache Royale
+        run: |
+          npm install --no-save @apache-royale/royale-js
+          npx mxmlc -target-player=11.1 -static-link-runtime-shared-libraries=true \
+            -source-path=as3 -output=MarkerSwap.swf as3/MarkerSwap.as
+      - uses: actions/upload-artifact@v4
+        with: { name: MarkerSwap-swf, path: MarkerSwap.swf }
