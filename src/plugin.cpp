@@ -5,6 +5,8 @@
 #include "F4SE/F4SE.h"
 #include "RE/Fallout.h"
 
+#include "Scaleform/G/GFx_ASMovieRootBase.h"
+
 #include "IconResolver.h"
 
 using namespace std::literals;
