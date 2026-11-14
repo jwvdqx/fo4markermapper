@@ -1,0 +1,53 @@
+markerType,suggestedIcon
+AirfieldMarker,aircraft
+BoSMarker,faction flag (green)
+BottlingPlantMarker,burger
+BrownstoneMarker,house (for sale)
+BunkerMarker,locked yard
+CamperMarker,campfire / flame
+DiamondCityMarker,money
+DisciplesMarker,faction flag (purple)
+DriveInMarker,food
+EncampmentMarker,campfire / flame
+FactoryMarker,truck
+FarmMarker,chicken / farm
+FillingStationMarker,garage / workshop
+GoodneighborMarker,nightclub
+HospitalMarker,hospital cross
+InstituteMarker,tech / gadget
+JunkyardMarker,heavy machinery
+LandmarkMarker,flag
+LowRiseMarker,house (for sale)
+MilitaryBaseMarker,gun
+MinutemenMarker,faction flag (blue)
+MonumentMarker,flag
+ObservatoryMarker,beacon / light
+OperatorsMarker,faction flag (yellow)
+PackMarker,faction flag (neutral)
+PierMarker,boat
+PlayerLocMarker,player portrait
+PlayerSetMarker,waypoint pin
+PoliceStationMarker,police badge
+PotentialVassalSettlementMarker,house (for sale)
+PowerArmorLocMarker,heavy machinery
+PrydwenMarker,runway / airship
+QuestMarker,question mark
+QuestDoorMarker,question mark
+RadioTowerMarker,beacon / light
+RadioactiveAreaMarker,hazard / danger
+RaiderSettlementMarker,faction flag (purple)
+RailroadMarker,faction flag (yellow)
+RailroadFactionMarker,faction flag (yellow)
+RidesMarker,race / ride
+SatelliteMarker,beacon / light
+SchoolMarker,school building
+SettlementMarker,house (owned)
+ShipwreckMarker,boat
+SkyscraperMarker,house (for sale)
+SubmarineMarker,boat
+TownMarker,house (owned)
+TownRuinsMarker,house (for sale)
+USSConstitutionMarker,boat
+UrbanRuinsMarker,house (for sale)
+VassalSettlementMarker,house (owned)
+VaultMarker,safe / save point
