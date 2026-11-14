@@ -15,3 +15,12 @@ Resolution: location file -> type file -> vanilla.
   Pipboy_MapPage.swf, then for each clip from `MarkerTypesA`/`WorldMapMarkers`/`LocalMapMarkers`
   hide the vanilla symbol, add a Bitmap from the resolved PNG, and skip the ColorTransform.
 - All marker type names are in Pipboy_MapPage.swf (~90) and MapMarkers.swf (51, Discovered/Undiscovered frames).
+
+## Build (GitHub Actions)
+`.github/workflows/build.yml` builds on every push:
+- `plugin`: windows-latest, xmake + CommonLibF4 (submodule `extern/commonlibf4`, Address Library) -> `MarkerSwap.dll`
+- `swf`: Apache Royale compiles `as3/MarkerSwap.as` -> `MarkerSwap.swf`
+
+Setup once: `git submodule add https://github.com/libxse/commonlibf4 extern/commonlibf4`
+Install: `MarkerSwap.dll` -> `Data/F4SE/Plugins/`, `MarkerSwap.swf` -> `Data/Interface/`, your PNGs -> `Data/Interface/MapMarkers/types/`.
+Status: written against the CommonLibF4 headers, never run in the game or in CI yet; expect a fix round.
