@@ -33,9 +33,7 @@ begin
   if tp = '' then tp := GetElementEditValues(e, 'Map Marker\TNAM\Type');
 
   cn := ''; ln := '';
-  cell := LinksTo(ElementByIndex(e, 0)); // fallback, overwritten below
-  cell := WinningOverride(LinksTo(ElementByPath(e, 'Cell')));
-  cell := GetContainer(GetContainer(e)); // CELL via group nesting
+  cell := GetContainer(e); // walk up the group tree to the owning CELL
   while Assigned(cell) and (Signature(cell) <> 'CELL') do cell := GetContainer(cell);
   if Assigned(cell) then begin
     cn := EditorID(cell);
