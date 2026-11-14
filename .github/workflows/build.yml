@@ -20,12 +20,13 @@ jobs:
         with: { distribution: temurin, java-version: 17 }
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
-      - name: Compile AS3 with Apache Royale
+      - name: Compile AS3 with Apache Royale (SWF target)
         run: |
-          npm install --no-save @apache-royale/royale-js
-          mkdir -p node_modules/@apache-royale/royale-js/royale-asjs/frameworks/libs/player/11.1
-          curl -fsSL https://github.com/nexussays/playerglobal/raw/master/11.1/playerglobal.swc -o node_modules/@apache-royale/royale-js/royale-asjs/frameworks/libs/player/11.1/playerglobal.swc
-          npx mxmlc -target-player=11.1 -static-link-runtime-shared-libraries=true \
-            -source-path=as3 -output=MarkerSwap.swf as3/MarkerSwap.as
+          SDK="$RUNNER_TEMP/royale"
+          mkdir -p "$SDK" && (cd "$SDK" && npm init -y >/dev/null && npm install --no-save @apache-royale/royale-js)
+          R="$SDK/node_modules/@apache-royale/royale-js/royale-asjs"
+          mkdir -p "$R/frameworks/libs/player/11.1"
+          curl -fsSL https://github.com/nexussays/playerglobal/raw/master/11.1/playerglobal.swc -o "$R/frameworks/libs/player/11.1/playerglobal.swc"
+          sh "$R/bin/mxmlc" -target-player=11.1 -static-link-runtime-shared-libraries=true -output=MarkerSwap.swf as3/MarkerSwap.as
       - uses: actions/upload-artifact@v4
         with: { name: MarkerSwap-swf, path: MarkerSwap.swf }

@@ -6,6 +6,7 @@ package {
     import flash.events.*;
     import flash.net.URLRequest;
     import flash.utils.*;
+    import flash.geom.ColorTransform;
 
     public class MarkerSwap extends MovieClip {
         private static const POLL:int = 15;          // frames between scans
@@ -54,7 +55,7 @@ package {
             l.x = v.x; l.y = v.y; l.scaleX = v.scaleX; l.scaleY = v.scaleY;
             l.visible = v.visible; l.alpha = 1;
             // identity colour transform: the PNG's own colours
-            l.transform.colorTransform = new flash.geom.ColorTransform();
+            l.transform.colorTransform = new ColorTransform();
         }
     }
 }
